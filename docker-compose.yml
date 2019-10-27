@@ -2,5 +2,9 @@ version: '3'
 services:
   hkweb:
     build: .
+    ports:
+      - "8081:80"
     volumes:
-      - "./volumes:/volumes:ro"
+      - "./volumes/nginx:/volumes:ro"
+      - "./volumes/nginx/conf.d:/etc/nginx/conf.d:ro"
+      - "./volumes/nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
