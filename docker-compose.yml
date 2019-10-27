@@ -15,11 +15,13 @@ services:
       - "./nginx/volumes/nginx/conf.d:/etc/nginx/conf.d:ro"
       - "./nginx/volumes/nginx/nginx.conf:/etc/nginx/nginx.conf:ro"
   hkweb:
-    build: ./rails
+    build: ./hkweb
     networks:
       - landingpage
     ports:
       - "3000:3000"
+    volumes:
+      - "./hkweb/hkweb:/rails/hkweb"
 
 networks:
   landingpage:

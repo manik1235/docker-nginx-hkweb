@@ -27,14 +27,12 @@ RUN gem install -N nokogiri -- --use-system-libraries && \
   rm -rf ~/.gem
 # end snippet. From https://github.com/CenturyLinkLabs/alpine-rails/blob/master/Dockerfile
 
-# Install/create test app
-
-RUN mkdir /rails
-WORKDIR /rails
-RUN rails new test-app
-WORKDIR /rails/test-app
-RUN echo "gem 'bigdecimal'" >> Gemfile
+# Copy in app, and install with bundler
+RUN mkdir -p /rails/hkweb
+COPY ./hkweb/ /rails/hkweb/
+WORKDIR /rails/hkweb
 RUN bundle install
 
 # Run Rails server
 CMD ["bundle", "exec", "rails", "s", "-b", "0.0.0.0"]
+#CMD ["ping", "docker.com"]
