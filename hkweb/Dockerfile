@@ -1,4 +1,4 @@
-FROM docker-nginx-hkweb_alpine:latest
+FROM manik1235/docker-nginx-hkweb_alpine:latest
 # Install Rails
 # begin snippet. From https://github.com/CenturyLinkLabs/alpine-rails/blob/master/Dockerfile
 MAINTAINER CenturyLink Labs <innovationslab@ctl.io>
