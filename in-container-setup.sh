@@ -42,3 +42,11 @@ mkdir -p /run/nginx
 nginx
 # Install Rails
 ## Via Dockerfile
+# Add first test app
+mkdir /rails
+cd /rails
+rails new test-app
+cd test-app
+# Add `gem 'bigdecimal' to Gemfile
+bundle install
+bundle exec rails s -b 0.0.0.0
