@@ -40,3 +40,5 @@ apk add nginx
 # 1 error, it can't write over the read only `nginx.conf`
 mkdir -p /run/nginx
 nginx
+# Install Rails
+## Via Dockerfile
