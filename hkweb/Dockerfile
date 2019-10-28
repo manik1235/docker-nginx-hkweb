@@ -17,8 +17,6 @@ RUN gem install -N nokogiri -- --use-system-libraries && \
   echo 'gem: --no-document' >> ~/.gemrc && \
   cp ~/.gemrc /etc/gemrc && \
   chmod uog+r /etc/gemrc && \
-
-  # cleanup and settings
   bundle config --global build.nokogiri  "--use-system-libraries" && \
   bundle config --global build.nokogumbo "--use-system-libraries" && \
   find / -type f -iname \*.apk-new -delete && \
@@ -32,6 +30,8 @@ RUN mkdir -p /rails/hkweb
 COPY ./hkweb/ /rails/hkweb/
 WORKDIR /rails/hkweb
 RUN bundle install
+# Can migrations be run conditionally?
+RUN bundle exec rails db:migrate
 
 # Run Rails server
 CMD ["bundle", "exec", "rails", "s", "-b", "0.0.0.0"]
