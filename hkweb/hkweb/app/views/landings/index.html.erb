@@ -1,34 +1,23 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Add Entry', new_landing_path %>
 
-
-
-<h1>Landings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Url</th>
-      <th>Group</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @landings.each do |landing| %>
+<% @groups.find_each do |group| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= landing.name %></td>
-        <td><%= landing.url %></td>
-        <td><%= landing.group %></td>
-        <td><%= link_to 'Show', landing %></td>
-        <td><%= link_to 'Edit', edit_landing_path(landing) %></td>
-        <td><%= link_to 'Destroy', landing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th colspan=4 class="panel-header"><%= group %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Landing', new_landing_path %>
+    </thead>
+    <tbody>
+      <% group.landings.find_each do |landing| %>
+        <tr>
+          <td><%= link_to landing.name, landing %></td>
+          <td><%= landing.url %></td>
+          <td><%= link_to "edit", edit_landing_path(landing) %></td>
+          <td><%= link_to 'remove', landing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

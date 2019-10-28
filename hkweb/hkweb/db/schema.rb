@@ -10,14 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_27_202809) do
+ActiveRecord::Schema.define(version: 2019_10_27_211119) do
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+  end
 
   create_table "landings", force: :cascade do |t|
     t.string "name"
     t.string "url"
-    t.string "group"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "group_id"
+    t.index ["group_id"], name: "index_landings_on_group_id"
   end
 
 end

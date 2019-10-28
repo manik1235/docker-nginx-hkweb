@@ -4,6 +4,7 @@ class LandingsController < ApplicationController
   # GET /landings
   def index
     @landings = Landing.all
+    @groups = Group.all
   end
 
   # GET /landings/1
