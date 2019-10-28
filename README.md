@@ -7,7 +7,7 @@
 ## Setup
 
 1. Clone the repo locally:
-`git clone git@github.com:manik1235/docker-nginx-hkweb.git
+`git clone git@github.com:manik1235/docker-nginx-hkweb.git`
 
 2. Build the Dockerfiles using docker compose
 ```cd docker-nginx-hkweb
