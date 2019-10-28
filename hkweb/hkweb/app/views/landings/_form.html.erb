@@ -22,8 +22,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :group %>
-    <%= form.text_field :group %>
+    <%= form.label :group_id %>
+    <%= form.collection_select(:group_id, @groups, :id, :to_s) %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Add by group name (Overrides choice above)" %>
+    <%= form.text_field :group_name %>
   </div>
 
   <div class="actions">
