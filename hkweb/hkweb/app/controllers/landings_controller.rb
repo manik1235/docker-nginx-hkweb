@@ -1,10 +1,10 @@
 class LandingsController < ApplicationController
   before_action :set_landing, only: [:show, :edit, :update, :destroy]
+  before_action :set_groups, only: [:index, :new, :create, :edit, :update]
 
   # GET /landings
   def index
     @landings = Landing.all
-    @groups = Group.all
   end
 
   # GET /landings/1
@@ -25,7 +25,8 @@ class LandingsController < ApplicationController
     @landing = Landing.new(landing_params)
 
     if @landing.save
-      redirect_to @landing, notice: 'Landing was successfully created.'
+      flash.now[:notice] = "#{@landing.name} was successfully created."
+      render :index
     else
       render :new
     end
@@ -34,7 +35,8 @@ class LandingsController < ApplicationController
   # PATCH/PUT /landings/1
   def update
     if @landing.update(landing_params)
-      redirect_to @landing, notice: 'Landing was successfully updated.'
+      flash.now[:notice] = "#{@landing.name} was successfully updated."
+      render :index
     else
       render :edit
     end
@@ -48,12 +50,16 @@ class LandingsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_groups
+      @groups = Group.all
+    end
+
     def set_landing
       @landing = Landing.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def landing_params
-      params.require(:landing).permit(:name, :url, :group)
+      params.require(:landing).permit(:name, :url, :group_id)
     end
 end
