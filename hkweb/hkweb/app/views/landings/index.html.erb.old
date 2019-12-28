@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<br>
+<%= link_to 'Add Entry', new_landing_path %>
+<br>
+<% @groups.find_each do |group| %>
+  <table>
+    <thead>
+      <tr>
+        <th colspan=4 class="panel-header"><%= group %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% group.landings.find_each do |landing| %>
+        <tr>
+          <td><%= link_to landing.name, landing.url %></td>
+          <td><%= link_to landing.url, landing.url %></td>
+          <td><%= link_to "edit", edit_landing_path(landing) %></td>
+          <td><%= link_to 'remove', landing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
