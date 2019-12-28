@@ -1,3 +1,4 @@
 *.swp
 hkweb/hkweb/tmp/**
 hkweb/hkweb/log/**
+hkweb/hkweb/db/dbs/*
