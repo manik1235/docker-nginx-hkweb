@@ -1,20 +1,16 @@
 // Place all the styles related to the landings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.panel-header {
-  text-align: left;
-}
-
 body {
-background: darkslategrey url(https://images.pexels.com/photos/1020315/pexels-photo-1020315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) round;
+  background: darkslategrey url(https://images.pexels.com/photos/1020315/pexels-photo-1020315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) round;
 }
 
 a {
-text-decoration: none;
+  text-decoration: none;
 }
 
 a:link {
-color: grey;
+  color: grey;
 }
 
 a:hover {
@@ -36,27 +32,35 @@ box-shadow: 10px 10px black;
 }
 
 .panel-heading {
-background-color: #000066;
-color: white;
+  background-color: #000066;
+  color: white;
 }
 
 .teeth {
-background: black;
-border-radius: 25px;
-border-style: solid;
-margin-top: 20px;
-padding: 5px;
+  background: black;
+  border-radius: 25px;
+  border-style: solid;
+  margin-top: 20px;
+  padding: 5px;
 }
 
 .teeth-upper:after {
-content: "VVVVVVVVVVV";
+  content: "VVVVVVVVVVV";
 }
 
 .teeth-lower:after {
-content: "AAAAAAAAAAA";
+  content: "AAAAAAAAAAA";
 }
 
 .show-href:after {
-content: attr(href);
+  content: attr(href);
 }
 
+.landing-heading {
+  font-size: 3em;
+  padding: 5px;
+}
+
+.landing-name {
+  font-size: 2em;
+}
