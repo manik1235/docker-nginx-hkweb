@@ -1,23 +1,88 @@
-<p id="notice"><%= notice %></p>
+<center class="container-fluid">
+<div class="teeth">
+<a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
+<button data-toggle="collapse" data-target="#panel-youtube-dl">Download Youtube Videos</button>
+<button data-toggle="collapse" data-target="#panel-youtube-dl-q">Youtube Download Queue</button>
+<button data-toggle="collapse" data-target="#panel-plex-webtools">Plex Webtools</button>
+<button data-toggle="collapse" data-target="#panel-plex-tautulli">Plex Usage Stats</button>
+<center><span class="teeth-upper"></span></center>
+
+<div id="panel-youtube-dl" class="collapse">
+<iframe src="http://192.168.1.103:8080" height="450" width="100%"></iframe>
+</div> 
+
+<div id="panel-youtube-dl-q" class="collapse">
+<iframe src="http://192.168.1.103:8080/youtube-dl/q" height="200" width="100%"></iframe>
+</div> 
+
+<div id="panel-plex-webtools" class="collapse">
+<iframe src="http://192.168.1.103:33400" height="600" width="100%"></iframe>
+</div> 
+
+<div id="panel-plex-tautulli" class="collapse">
+<iframe src="http://192.168.1.103:32500/home" height="600" width="100%"></iframe>
+</div> 
+<center><span class="teeth-lower"></span></center>
+<button data-toggle="collapse" data-target="#panel-youtube-dl">Download Youtube Videos</button>
+<button data-toggle="collapse" data-target="#panel-youtube-dl-q">Youtube Download Queue</button>
+<button data-toggle="collapse" data-target="#panel-plex-webtools">Plex Webtools</button>
+<button data-toggle="collapse" data-target="#panel-plex-tautulli">Plex Usage Stats</button>
+</div>
+</center>
+
 <br>
-<%= link_to 'Add Entry', new_landing_path %>
-<br>
-<% @groups.find_each do |group| %>
-  <table>
-    <thead>
-      <tr>
-        <th colspan=4 class="panel-header"><%= group %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% group.landings.find_each do |landing| %>
-        <tr>
-          <td><%= link_to landing.name, landing.url %></td>
-          <td><%= link_to landing.url, landing.url %></td>
-          <td><%= link_to "edit", edit_landing_path(landing) %></td>
-          <td><%= link_to 'remove', landing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+
+<div class="container-fluid">
+<!-- Minecraft & Plex -->
+<div class="row">
+<!-- Minecraft -->
+<div class="col-md-4">
+<div class="panel panel-info">
+<div class="panel-heading">Minecraft Servers and Dynmaps</div>
+<div class="panel-body">
+<h3>Travis (Survival):</h3>
+<h4>Server: 192.168.1.101:25570</h4>
+<h4>Dynmap: <a href="http://192.168.1.101:25571" target="_blank" class="show-href"></a></h4>
+<h4>Dynmap: <a href="http://192.168.1.103/travis" target="_blank" class="show-href"></a></h4>
+<h4>Rcon: <a href="http://192.168.1.101:25582" target="_blank" class="show-href"></a></h4>
+</div>
+<div class="panel-body">
+<h3>Makersville (Creative): </h3>
+<h4>Server: 192.168.1.101:25568</h4>
+<h4>Dynmap: <a href="http://192.168.1.101:25569" target="_blank" class="show-href"></a></h4>
+<h4>Dynmap: <a href="http://192.168.1.103/makersville" target="_blank" class="show-href"></a></h4>
+<h4>Rcon: Not set</h4>
+</div>
+<div class="panel-body">
+<h3>Funk Town (Survival): </h3>
+<h4>Server: 192.168.1.101:25573</h4>
+<h4>Dynmap: <a href="http://192.168.1.101:25574" target="_blank" class="show-href"></a></h4>
+<h4>Rcon: <a href="http://192.168.1.101:25575" target="_blank" class="show-href"></a></h4>
+</div>
+</div>
+</div>
+
+<!-- Plex -->
+<div class="col-md-4">
+<div class="panel panel-info">
+<div class="panel-heading">Plex</div>
+<div class="panel-body">
+<h3>Plex Server Interface: </h3>
+<h4><a href="http://192.168.1.103:32400" target="_blank" class="show-href"></a></h4>
+<h4><a href="http://192.168.1.103/plex" target="_blank" class="show-href"></a></h4>
+</div>
+<div class="panel-body">
+<h3>Plex: WebTools: </h3>
+<h4><a href="http://192.168.1.103:33400" target="_blank" class="show-href"></a></h4>
+</div>
+<div class="panel-body">
+<h3>Plex: Tautulli (Viewing Stats)</h3>
+<h4><a href="http://192.168.1.103:32500/home" target="_blank" class="show-href"></a></h4>
+<h4><a href="http://192.168.1.103/tautulli" target="_blank" class="show-href"></a></h4>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="panel panel-info">
+<div class="panel-heading">SSH</div>
+
