@@ -2,17 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  background: darkslategrey url(https://images.pexels.com/photos/1020315/pexels-photo-1020315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) round;
+  background: darkslategrey url(https://images.pexels.com/photos/1020315/pexels-photo-1020315.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center center fixed;
+  max-width: 100%;
 }
 
 a {
   text-decoration: none;
 }
 
-a:link {
-  color: grey;
+a:visited {
+  color: black;
 }
 
 a:hover {
+  background-color: rgba(0, 0, 0, 0);
   color: red;
+  text-decoration: none;
 }

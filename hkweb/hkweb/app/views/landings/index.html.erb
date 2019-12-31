@@ -1,43 +1,39 @@
-<div class="container">
-  <% if notice %>
-    <div class="row">
-      <div class="col-12">
-        <div class="card">
-          <h1 class="card-header">
-            <p id="notice"><%= notice %></p>
-          </h1>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  <div class="row">
-    <div class="col-12">
-      <div class="card">
-        <h2 class="card-header">Utilities</h2>
-        <div class="card-body">
-          <%= link_to 'Add Entry', new_landing_path %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <% @groups.find_each do |group| %>
-      <div class="col-md-4">
-        <div class="card">
-          <h1 class="card-header"><%= group %></h1>
-          <% group.landings.find_each do |landing| %>
-            <div class="card-body">
-              <h3><%= link_to landing.name, landing.url, class: "card-text" %></h3>
-              <%= link_to landing.url, landing.url, class: "card-text" %>
-              &nbsp;
-              <%= link_to icon('fas', 'edit'), edit_landing_path(landing), title: "Edit", alt: "Edit" %>
-              &nbsp;
-              <%= link_to icon('fas', 'trash'), landing, method: :delete, data: { confirm: 'Are you sure?' }, title: "Remove", alt: "Remove" %>
-            </div>
-          <% end %>
+<div class="background-image">
+  <div class="container-fluid">
+    <% if notice %>
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-1">
+            <h1 class="card-header">
+              <p id="notice"><%= notice %></p>
+            </h1>
+          </div>
         </div>
       </div>
     <% end %>
+    <div class="row">
+      <% @groups.find_each do |group| %>
+        <div class="col-lg-4 col-xs-12">
+          <div class="card mb-1">
+            <h1 class="card-header"><%= group %><span class="float-right"><%= link_to icon('fas', 'plus-square'), new_landing_path(group_id: group.id), class: "text-success" %></span></h1>
+            <% group.landings.find_each do |landing| %>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-8">
+                    <%= link_to content_tag(:h3, landing.name) + content_tag(:h6, landing.url), landing.url, class: "card-text" %>
+                  </div>
+                  <div class="col-4">
+                    <h4 class="text-nowrap float-right">
+                      <%= link_to icon('fas', 'edit'), edit_landing_path(landing), title: "Edit", alt: "Edit", class: "mx-2" %>
+                      <%= link_to icon('fas', 'trash'), landing, method: :delete, data: { confirm: 'Are you sure?' }, title: "Remove", alt: "Remove", class: "mx-2" %>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
-<% console %>

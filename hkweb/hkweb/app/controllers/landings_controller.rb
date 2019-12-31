@@ -13,7 +13,9 @@ class LandingsController < ApplicationController
 
   # GET /landings/new
   def new
-    @landing = Landing.new
+    group_id = params[:group_id]
+    @landing = Landing.new(group_id: group_id)
+    console
   end
 
   # GET /landings/1/edit
