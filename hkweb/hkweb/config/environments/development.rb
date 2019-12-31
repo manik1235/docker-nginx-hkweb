@@ -60,7 +60,16 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Allow specific IP addresses for the web console when developing remotely
+<<<<<<< Updated upstream
   whitelist = {
+=======
+  ajhk_hardware = {
+    switch: '192.168.128.3',
+    docker_container: '192.168.144.2',
+    e5450: '10.200.129.248',
+  }
+  external_locations = {
+>>>>>>> Stashed changes
     little_turtle_library: '208.119.150.96',
   }
   config.web_console.whitelisted_ips = whitelist[:little_turtle_library]
