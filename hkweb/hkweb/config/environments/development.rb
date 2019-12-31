@@ -58,4 +58,10 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # Allow specific IP addresses for the web console when developing remotely
+  whitelist = {
+    little_turtle_library: '208.119.150.96',
+  }
+  config.web_console.whitelisted_ips = whitelist[:little_turtle_library]
 end
