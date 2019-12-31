@@ -61,7 +61,8 @@ Rails.application.configure do
 
   # Allow specific IP addresses for the web console when developing remotely
   ajhk_hardware = {
-    switch: '192.168.128.3',
+    docker_maybe: '192.168.128.3',
+    docker_maybe2: '192.168.160.3',
     docker_container: '192.168.144.2',
     e5450: '10.200.129.248',
   }
