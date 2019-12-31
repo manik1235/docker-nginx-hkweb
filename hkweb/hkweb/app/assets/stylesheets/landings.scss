@@ -14,53 +14,5 @@ a:link {
 }
 
 a:hover {
-color: red;
-}
-
-.accordion-option .toggle-accordion:before {
-content: "Expand All";
-}
-
-.accordion-option .toggle-accordion.active:before {
-content: "Collapse All";
-}
-
-.panel {
-background: darkslategrey;
-color: white;
-box-shadow: 10px 10px black;
-}
-
-.panel-heading {
-  background-color: #000066;
-  color: white;
-}
-
-.teeth {
-  background: black;
-  border-radius: 25px;
-  border-style: solid;
-  margin-top: 20px;
-  padding: 5px;
-}
-
-.teeth-upper:after {
-  content: "VVVVVVVVVVV";
-}
-
-.teeth-lower:after {
-  content: "AAAAAAAAAAA";
-}
-
-.show-href:after {
-  content: attr(href);
-}
-
-.landing-heading {
-  font-size: 3em;
-  padding: 5px;
-}
-
-.landing-name {
-  font-size: 2em;
+  color: red;
 }

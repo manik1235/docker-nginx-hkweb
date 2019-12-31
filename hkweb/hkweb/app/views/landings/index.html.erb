@@ -1,51 +1,15 @@
-<center class="container-fluid">
-  <div class="teeth">
-    <a href="javascript:void(0)" class="toggle-accordion active" accordion-id="#accordion"></a>
-    <button data-toggle="collapse" data-target="#panel-youtube-dl">Download Youtube Videos</button>
-    <button data-toggle="collapse" data-target="#panel-youtube-dl-q">Youtube Download Queue</button>
-    <button data-toggle="collapse" data-target="#panel-plex-webtools">Plex Webtools</button>
-    <button data-toggle="collapse" data-target="#panel-plex-tautulli">Plex Usage Stats</button>
-    <center><span class="teeth-upper"></span></center>
-
-    <div id="panel-youtube-dl" class="collapse">
-      <iframe src="http://192.168.1.103:8080" height="450" width="100%"></iframe>
-    </div>
-
-    <div id="panel-youtube-dl-q" class="collapse">
-      <iframe src="http://192.168.1.103:8080/youtube-dl/q" height="200" width="100%"></iframe>
-    </div>
-
-    <div id="panel-plex-webtools" class="collapse">
-      <iframe src="http://192.168.1.103:33400" height="600" width="100%"></iframe>
-    </div>
-
-    <div id="panel-plex-tautulli" class="collapse">
-      <iframe src="http://192.168.1.103:32500/home" height="600" width="100%"></iframe>
-    </div>
-    <center><span class="teeth-lower"></span></center>
-    <button data-toggle="collapse" data-target="#panel-youtube-dl">Download Youtube Videos</button>
-    <button data-toggle="collapse" data-target="#panel-youtube-dl-q">Youtube Download Queue</button>
-    <button data-toggle="collapse" data-target="#panel-plex-webtools">Plex Webtools</button>
-    <button data-toggle="collapse" data-target="#panel-plex-tautulli">Plex Usage Stats</button>
-  </div>
-</center>
-
-<br>
-
-<div class="container-fluid">
-  <!-- Minecraft & Plex -->
+<div class="container">
   <div class="row">
-    <!-- Minecraft -->
     <% @groups.find_each do |group| %>
       <div class="col-md-4">
-        <div class="panel panel-info">
-          <div class="panel-heading landing-heading"><%= group %></div>
+        <div class="card">
+          <div class="card-header"><%= group %></div>
           <% group.landings.find_each do |landing| %>
-            <div class="panel-body">
-              <%= link_to landing.name, landing.url, class: "landing-name" %>
-              <%= link_to landing.url, landing.url, class: "landing-url" %>
-              <%= link_to "edit", edit_landing_path(landing), class: "landing-edit" %>
-              <%= link_to 'remove', landing, method: :delete, data: { confirm: 'Are you sure?' }, class: "landing-remove" %>
+            <div class="card-body">
+              <%= link_to landing.name, landing.url %><br>
+              <%= link_to landing.url, landing.url %><br>
+              <%= link_to icon('fas', 'edit'), edit_landing_path(landing), title: "Edit" %>
+              <%= link_to icon('fas', 'trash'), landing, method: :delete, data: { confirm: 'Are you sure?' }, title: "Remove" %>
             </div>
           <% end %>
         </div>
@@ -53,3 +17,4 @@
     <% end %>
   </div>
 </div>
+<% console %>
