@@ -6,7 +6,7 @@ services:
     networks:
       - landingpage
     ports:
-      - "81:80"
+      - "35001:80"
     volumes:
       - "./nginx/volumes/nginx:/volumes"
       - "./nginx/volumes/nginx/conf.d:/etc/nginx/conf.d:ro"
