@@ -65,6 +65,7 @@ Rails.application.configure do
     docker_maybe2: '192.168.160.3',
     docker_container: '192.168.144.2',
     e5450: '10.200.129.248',
+    latitude: '10.200.129.252',
   }
   external_locations = {
     little_turtle_library: '208.119.150.96',
