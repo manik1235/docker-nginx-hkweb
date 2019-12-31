@@ -6,7 +6,10 @@ services:
     networks:
       - landingpage
     ports:
-      - "35001:80"
+      # Production port 80
+      - "80:80"
+      # Dev port 35001
+      #- "35001:80"
     volumes:
       - "./nginx/volumes/nginx:/volumes"
       - "./nginx/volumes/nginx/conf.d:/etc/nginx/conf.d:ro"
@@ -16,8 +19,6 @@ services:
     build: ./hkweb
     networks:
       - landingpage
-    ports:
-      - "3000:3000"
     volumes:
       - type: "bind"
         source: ./hkweb/hkweb
