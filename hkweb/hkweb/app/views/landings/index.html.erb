@@ -17,8 +17,8 @@
           <div class="card-header text-nowrap">
             <h1 class="d-inline"><%= link_to icon('fas', 'plus-square'), new_landing_path(group_id: group), class: "text-success mr-3" %><%= group.name %></h1>
             <h5 class="d-inline text-nowrap float-right">
-              <%= link_to icon('fas', 'edit'), "#", title: "Edit", alt: "Edit", class: "mr-2" %>
-              <%= link_to icon('fas', 'trash'), "#", method: :delete, data: { confirm: 'Are you sure?' }, title: "Remove", alt: "Remove", class: "mx-2" %>
+              <%= link_to icon('fas', 'edit'), edit_group_path(group), title: "Edit", alt: "Edit", class: "mr-2" %>
+              <%= link_to icon('fas', 'trash'), group, method: :delete, data: { confirm: 'Are you sure?' }, title: "Remove", alt: "Remove", class: "mx-2" %>
             </h5>
           </div>
           <% group.landings.find_each do |landing| %>
