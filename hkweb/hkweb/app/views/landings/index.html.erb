@@ -14,7 +14,13 @@
     <% @groups.find_each do |group| %>
       <div class="col-lg-4 col-xs-12">
         <div class="card mb-1">
-          <h1 class="card-header"><%= group.name %><span class="float-right"><%= link_to icon('fas', 'plus-square'), new_landing_path(group_id: group.id), class: "text-success" %></span></h1>
+          <div class="card-header text-nowrap">
+            <h1 class="d-inline"><%= link_to icon('fas', 'plus-square'), new_landing_path(group_id: group), class: "text-success mr-3" %><%= group.name %></h1>
+            <h5 class="d-inline text-nowrap float-right">
+              <%= link_to icon('fas', 'edit'), "#", title: "Edit", alt: "Edit", class: "mr-2" %>
+              <%= link_to icon('fas', 'trash'), "#", method: :delete, data: { confirm: 'Are you sure?' }, title: "Remove", alt: "Remove", class: "mx-2" %>
+            </h5>
+          </div>
           <% group.landings.find_each do |landing| %>
             <div class="card-body">
               <div class="row">
