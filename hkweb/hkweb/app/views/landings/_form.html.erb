@@ -3,41 +3,40 @@
     <div class="col-6">
       <div class="card">
         <div class="card-header"><%= title %><div>
-          <div class="card-body">
-            <%= form_with(model: landing, local: true) do |form| %>
-              <% if landing.errors.any? %>
-                <div id="error_explanation">
-                  <h2><%= pluralize(landing.errors.count, "error") %> prohibited this landing from being saved:</h2>
+        <div class="card-body">
+          <%= form_with(model: landing, local: true) do |form| %>
+            <% if landing.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(landing.errors.count, "error") %> prohibited this landing from being saved:</h2>
 
-                  <ul>
-                  <% landing.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                  </ul>
-                </div>
-              <% end %>
-
-              <div class="field">
-                <%= form.text_field :name, placeholder: :name, class: "w-100" %>
-              </div>
-
-              <div class="field">
-                <%= form.text_field :url, placeholder: :url, class: "w-100" %>
-              </div>
-
-              <div class="field text-nowrap">
-                <%= form.collection_select(:group_id, @groups, :id, :to_s, { include_blank: true }, { class: "js-select-group w-25" }) %>
-                <%= form.text_field :group_name, placeholder: "New Group", class: "js-new-group-input w-75" %>
-              </div>
-
-              <div class="actions">
-                <%= form.submit %>
+                <ul>
+                <% landing.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
               </div>
             <% end %>
-          </div>
+
+            <div class="field">
+              <%= form.text_field :name, placeholder: :name, title: :name, class: "w-100" %>
+            </div>
+
+            <div class="field">
+              <%= form.text_field :url, placeholder: :url, title: :url, class: "w-100" %>
+            </div>
+
+            <div class="field text-nowrap">
+              <%= form.collection_select(:group_id, @groups, :id, :name, { include_blank: true }, { class: "js-select-group w-25" }) %>
+              <%= form.text_field :group_name, placeholder: "New Group", class: "js-new-group-input w-75" %>
+            </div>
+
+            <div class="actions">
+              <%= form.submit %>
+            </div>
+          <% end %>
+          <%= link_to 'Back', landings_path %>
         </div>
       </div>
     </div>
   </div>
 </div>
-<%= link_to 'Back', landings_path %>

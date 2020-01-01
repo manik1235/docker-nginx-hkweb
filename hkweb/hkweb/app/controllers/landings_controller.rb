@@ -15,7 +15,6 @@ class LandingsController < ApplicationController
   def new
     group_id = params[:group_id]
     @landing = Landing.new(group_id: group_id)
-    console
   end
 
   # GET /landings/1/edit
@@ -25,7 +24,7 @@ class LandingsController < ApplicationController
   # POST /landings
   def create
     @landing = Landing.new(landing_params)
-    @landing.group = Group.find_or_initialize_by(name: params[:landing][:group_name]) if params && params[:landing] && params[:landing][:group_name].present?
+    @landing.group ||= Group.find_or_initialize_by(name: params[:landing][:group_name]) if params && params[:landing] && !params[:landing][:group_id] && params[:landing][:group_name].present?
 
     if @landing.save
       flash.now[:notice] = "#{@landing.name} was successfully created."
@@ -38,7 +37,7 @@ class LandingsController < ApplicationController
   # PATCH/PUT /landings/1
   def update
     @landing.assign_attributes(landing_params)
-    group = Group.find_or_initialize_by(name: params[:landing][:group_name]) if params && params[:landing] && params[:landing][:group_name].present?
+    @landing.group ||= Group.find_or_initialize_by(name: params[:landing][:group_name]) if params && params[:landing] && !params[:landing][:group_id] && params[:landing][:group_name].present?
 
     if @landing.save
       flash.now[:notice] = "#{@landing.name} was successfully updated."
