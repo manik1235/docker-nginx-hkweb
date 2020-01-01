@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-4">
+    <div class="col-6">
       <div class="card">
         <div class="card-header"><%= title %><div>
           <div class="card-body">
@@ -18,17 +18,16 @@
               <% end %>
 
               <div class="field">
-                <%= form.text_field :name, placeholder: :name %>
+                <%= form.text_field :name, placeholder: :name, class: "w-100" %>
               </div>
 
               <div class="field">
-                <%= form.text_field :url, placeholder: :url %>
+                <%= form.text_field :url, placeholder: :url, class: "w-100" %>
               </div>
 
-              <div class="field">
-                <%= form.label :group_id %>
-                <%= form.collection_select(:group_id, @groups, :id, :to_s, { include_blank: true }, { class: "js-select-group" }) %>
-                <%= form.text_field :group_name, placeholder: "New Group", class: "js-new-group-input" %>
+              <div class="field text-nowrap">
+                <%= form.collection_select(:group_id, @groups, :id, :to_s, { include_blank: true }, { class: "js-select-group w-25" }) %>
+                <%= form.text_field :group_name, placeholder: "New Group", class: "js-new-group-input w-75" %>
               </div>
 
               <div class="actions">

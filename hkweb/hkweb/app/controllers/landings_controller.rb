@@ -38,7 +38,8 @@ class LandingsController < ApplicationController
   # PATCH/PUT /landings/1
   def update
     @landing.assign_attributes(landing_params)
-    @landing.group = Group.find_or_initialize_by(name: params[:landing][:group_name]) if params && params[:landing] && params[:landing][:group_name].present?
+    group = Group.find_or_initialize_by(name: params[:landing][:group_name]) if params && params[:landing] && params[:landing][:group_name].present?
+
     if @landing.save
       flash.now[:notice] = "#{@landing.name} was successfully updated."
       render :index
