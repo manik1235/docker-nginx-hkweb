@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:edit, :update, :destroy]
+  before_action :set_group, only: [:edit, :update]
 
   # GET /landings/1/edit
   def edit
@@ -17,8 +17,13 @@ class GroupsController < ApplicationController
 
   # DELETE /landings/1
   def destroy
-    @group.destroy
-    redirect_to landings_url, notice: "Group ##{@group.id} '#{@group.name}' was successfully destroyed."
+    @group = Group.find_by(id: params[:id])
+    if @group
+      @group.destroy
+      redirect_to landings_url, notice: "Group ##{@group.id} '#{@group.name}' was successfully destroyed."
+    else
+      redirect_to landings_url, notice: "Removal Failed: Group ##{params[:id]} was not found."
+    end
   end
 
   private

@@ -17,3 +17,19 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+$(function() {
+  var action, controller;
+
+  App.$body = $("body");
+
+  action = App.$body.attr("data-action") + "Action";
+  controller = App.$body.attr("data-controller") + "Controller";
+
+  try {
+    App[controller][action]();
+  } catch(err) {
+    console.log("Error initializing controller: " + err);
+  }
+});
